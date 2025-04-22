@@ -17,7 +17,9 @@ def home():
     cabecera = contenido[0].split('|')
     filas = contenido[1:]
 
-    filas_filtradas = [fila.split('|') for fila in filas if fila[0] in ['3', '4', '5', '7'] or fila.startswith(('3', '4', '5', '7'))]
+    #Primero crea un split de cada fila por el separador '|', luego en for fila in filas se crea un lista de listas, en donde desde la posición 0 de cada fila se filtran los elementos que empiezan con 3, 4, 5 o 7.
+
+    filas_filtradas = [fila.split('|') for fila in filas if fila[0] in ['3', '4', '5', '7'] ]
 
     tabla_html = '<table border="1" style="border-collapse: collapse;">'
     tabla_html += '<tr>' + ''.join(f'<th>{col}</th>' for col in cabecera) + '</tr>'
